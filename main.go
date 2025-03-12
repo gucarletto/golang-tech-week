@@ -52,7 +52,7 @@ func main() {
 
 	go func() {
 		for i := 0; i < valorMaximo; i++ {
-			inputCh <- NumeroJob{i}
+			inputCh <- NumeroJob{Numero: i}
 		}
 		close(inputCh)
 	}()

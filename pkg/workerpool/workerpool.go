@@ -77,7 +77,7 @@ func (wp *workerPool) Start(ctx context.Context, inputCh <-chan Job) (<-chan Res
 	wp.stopCh = make(chan struct{})
 	wp.stopWg.Add(wp.workerCount)
 	for i := 0; i < wp.workerCount; i++ {
-		go wp.worker(ctx, i, inputCh)
+		go wp.worker(ctx, i, inputCh, resultCh)
 	}
 
 	go func() {
